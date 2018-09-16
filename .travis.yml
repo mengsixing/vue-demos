@@ -1,0 +1,20 @@
+sudo: required
+language: node_js
+node_js:
+  - "10"
+
+script:
+  - yarn run build
+
+deploy:
+  provider: pages
+  target-branch: gh-pages
+  skip-cleanup: true
+  local-dir: dist/
+  repo: yhlben/vue-demos
+  email: robot@travis.com
+  name: robot
+  github-token: $REPO_TOKEN
+  keep-history: true
+  on:
+    branch: master
